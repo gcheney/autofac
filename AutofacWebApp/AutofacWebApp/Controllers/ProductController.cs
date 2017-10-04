@@ -18,9 +18,9 @@ namespace AutofacWebApp.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Product> ListProducts(int? limit)
+        public IEnumerable<Product> ListProducts(int startIndex = 0, int limit = 250)
         {
-            return _productRepositroy.ListProducts(limit);
+            return _productRepositroy.ListProducts(startIndex, limit);
         }
 
         [HttpPost]

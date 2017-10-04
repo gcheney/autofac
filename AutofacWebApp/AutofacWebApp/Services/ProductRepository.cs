@@ -15,9 +15,9 @@ namespace AutofacWebApp.Services
             _db.Add(product);
         }
 
-        public IEnumerable<Product> ListProducts(int retrievalCount = 250, int startIndex = 0)
+        public IEnumerable<Product> ListProducts(int startIndex, int limit)
         {
-            return _db.GetRange(startIndex, retrievalCount);
+            return _db.GetRange(startIndex, limit);
         }
     }
 }
