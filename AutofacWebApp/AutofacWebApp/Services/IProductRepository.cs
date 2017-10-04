@@ -9,6 +9,6 @@ namespace AutofacWebApp.Services
     public interface IProductRepository
     {
         void Add(Product product);
-        IEnumerable<Product> ListProducts(int? retrievalCount);
+        IEnumerable<Product> ListProducts(int startIndex, int retrievalCount);
     }
 }

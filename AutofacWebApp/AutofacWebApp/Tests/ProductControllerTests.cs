@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using AutofacWebApp.Controllers;
 using AutofacWebApp.Models;
 using AutofacWebApp.Services;
@@ -26,9 +24,10 @@ namespace AutofacWebApp.Tests
             var sampleProduct = GetSampleProduct();
             var expectedProducts = new List<Product> { sampleProduct };
             var retrievalCount = expectedProducts.Count;
+            const int startIndex = 0;
 
             var repositoryMock = new Mock<IProductRepository>();
-            repositoryMock.Setup(repo => repo.ListProducts(retrievalCount))
+            repositoryMock.Setup(repo => repo.ListProducts(startIndex, retrievalCount))
                 .Returns(expectedProducts);
 
             var productController = new ProductController(repositoryMock.Object);
